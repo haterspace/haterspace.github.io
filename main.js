@@ -22,17 +22,14 @@ function progress(value) {
 }
 
 progressChangeInput.addEventListener('input', () => {
-  progress(progressChangeInput.value);
-  if (isNaN(progressChangeInput.value) || progressChangeInput.value < 1) {
-    progressChangeInput.value = 0;
-  } else if (progressChangeInput.value > 100) {
-    progressChangeInput.value = 100;
-  } else if (
-    progressChangeInput.value.length > 1 &&
-    progressChangeInput.value.startsWith('0')
-  ) {
-    progressChangeInput.value = progressChangeInput.value.substring(1);
+  let value = parseInt(progressChangeInput.value);
+  if (isNaN(value) || value < 0) {
+    value = 0;
+  } else if (value > 100) {
+    value = 100;
   }
+  progressChangeInput.value = value;
+  progress(value);
 });
 
 // Функциональность для анимации
