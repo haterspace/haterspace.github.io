@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Progress</title>
+    <link rel="stylesheet" href="./styles/css/styles.css" />
+    <link rel="stylesheet" href="./styles/css/switcherStyle.css" />
+    <script defer src="./main.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <svg class="mainCircle" width="300" height="300">
+        <circle
+          stroke="rgb(207, 207, 207)"
+          stroke-width="30"
+          cx="150"
+          cy="150"
+          r="100"
+          fill="transparent"
+        />
+      </svg>
+      <svg class="progress" width="300" height="300">
+        <circle
+          class="progressRing"
+          stroke="blue"
+          stroke-width="30"
+          cx="150"
+          cy="150"
+          r="100"
+          fill="transparent"
+        />
+      </svg>
+      <div class="params">
+        <div class="param">
+          <label>
+            <input type="number" class="progressChangeInput" />
+          </label>
+          Value
+        </div>
+        <div class="param">
+          <label class="animationSwitch">
+            <input type="checkbox" />
+            <span class="slider round"></span>
+          </label>
+          Animate
+        </div>
+        <div class="param">
+          <label class="hideSwitch">
+            <input type="checkbox" />
+            <span class="slider round"></span>
+          </label>
+          Hide
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

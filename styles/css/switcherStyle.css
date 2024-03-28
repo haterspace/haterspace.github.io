@@ -1,0 +1,85 @@
+.animationSwitch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+.animationSwitch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.animationSwitch .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(189, 189, 189);
+  transition: 0.4s;
+  border-radius: 34px;
+}
+.animationSwitch .slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+.animationSwitch input:checked + .slider {
+  background-color: blue;
+}
+.animationSwitch input:focus + .slider {
+  box-shadow: 0 0 1px blue;
+}
+.animationSwitch input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.hideSwitch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+.hideSwitch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.hideSwitch .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+.hideSwitch .slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+.hideSwitch input:checked + .slider {
+  background-color: blue;
+}
+.hideSwitch input:focus + .slider {
+  box-shadow: 0 0 1px blue;
+}
+.hideSwitch input:checked + .slider:before {
+  transform: translateX(26px);
+}/*# sourceMappingURL=switcherStyle.css.map */
