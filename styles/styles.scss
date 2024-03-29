@@ -45,6 +45,15 @@ body {
   text-align: center;
 }
 
+@keyframes progress-animation {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 @media only screen and (min-width: 1025px) {
   .container {
     display: grid;

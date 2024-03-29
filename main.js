@@ -14,10 +14,13 @@ const progressRingLength = Math.PI * radius * 2;
 // Длина прогресса
 circle.style.strokeDasharray = `${progressRingLength} ${progressRingLength}`;
 circle.style.strokeDashoffset = progressRingLength;
+function offsetCount(value) {
+  return progressRingLength - (value / 100) * progressRingLength;
+}
 
 // Функциональность для инпута при вводе значения
-function progress(value) {
-  const offset = progressRingLength - (value / 100) * progressRingLength;
+function progress() {
+  const offset = offsetCount(progressChangeInput.value);
   circle.style.strokeDashoffset = offset;
 }
 
@@ -33,34 +36,16 @@ progressChangeInput.addEventListener('input', () => {
 });
 
 // Функциональность для анимации
-let progressValue = 0;
-let animationTimeout;
-
 function progressAnimation() {
-  progressValue++;
-  if (progressValue > 100) {
-    progressValue = 1;
-    setTimeout(() => {
-      progressAnimation();
-    }, 1000);
-    return;
-  }
+  circle.style.strokeDashoffset = offsetCount(progressChangeInput.value);
 
-  const offset =
-    progressRingLength - (progressValue / 100) * progressRingLength;
-  circle.style.strokeDashoffset = offset;
-
-  if (animationSwitcher.checked) {
-    animationTimeout = requestAnimationFrame(progressAnimation);
-  }
+  animationSwitcher.checked
+    ? (circle.style.animation = 'progress-animation 2s linear infinite')
+    : (circle.style.animation = 'none');
 }
 
 animationSwitcher.addEventListener('change', () => {
-  if (animationSwitcher.checked) {
-    progressAnimation();
-  } else {
-    cancelAnimationFrame(animationTimeout);
-  }
+  progressAnimation();
 });
 
 // Функциональность для скрытия
